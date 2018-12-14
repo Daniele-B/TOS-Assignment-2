@@ -2,14 +2,20 @@
 // [Daniele] [Bianchin] [1122996]
 ////////////////////////////////////////////////////////////////////
 package it.unipd.tos.business;
- import static org.junit.Assert.*;
- import java.awt.List;
+
+import static org.junit.Assert.*;
+
+import java.awt.List;
 import java.util.ArrayList;
- import org.junit.Test;
- import it.unipd.tos.business.exception.RestaurantBillException;
+
+import org.junit.Test;
+
+import it.unipd.tos.business.exception.RestaurantBillException;
 import it.unipd.tos.model.MenuItem;
- public class RestaurantBillImplTest {
- 	@Test(expected = RestaurantBillException.class)
+
+public class RestaurantBillImplTest {
+
+    @Test(expected = RestaurantBillException.class)
     public void MoreThan20Elements() throws RestaurantBillException {
         ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
         MenuItem item;
@@ -20,7 +26,12 @@ import it.unipd.tos.model.MenuItem;
         RestaurantBillImpl rb = new RestaurantBillImpl();
         rb.getOrderPrice(menu);
     }
-		
+    @Test
+    public void ShowItemNameString() {
+        ArrayList<MenuItem> menu = new ArrayList<>();
+        menu.add(new MenuItem(MenuItem.itemType.Pizze, "Diavola", 8));
+        assertEquals("Diavola",menu.get(0).getName()); 
+    }
     @Test
     public void LessThan10PizzasAndLessThan100TotalPrice() throws RestaurantBillException{
         ArrayList<MenuItem> menu = new ArrayList<>();

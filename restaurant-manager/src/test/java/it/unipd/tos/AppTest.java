@@ -16,8 +16,11 @@ public class AppTest
      * Rigorous Test :-)
      */
     @Test
-    public void shouldAnswerWithTrue()
+    public void AnswerTrue()
     {
-        assertTrue( true );
+        App app= new App();
+        String[] a = {};
+        App.main(a);
+        assertTrue(true);
     }
 }
